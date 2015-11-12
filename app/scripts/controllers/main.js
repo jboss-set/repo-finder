@@ -38,7 +38,10 @@ angular.module('jbossSetApp')
 
       var componentIndex = $scope.data.selectedComponent;
       $scope.component = $scope.components[componentIndex];
-      $scope.component.codebaseUrl = generateCodebaseUrl($scope);
+
+      if ($scope.component != undefined) {
+        $scope.component.codebaseUrl = generateCodebaseUrl($scope);
+      }
     }
 
     $scope.componentChange = function () {
