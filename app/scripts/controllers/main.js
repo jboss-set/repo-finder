@@ -43,5 +43,16 @@ angular.module('jbossSetApp')
     $scope.componentChange = function () {
       var index = $scope.data.selectedComponent;
       $scope.component = $scope.components[index];
+
+      var c = $scope.component;
+      if (!endsWith(c.repository_url, "/")) {
+        c.repository_url += "/";
+      }
+      $scope.component.codebaseUrl = c.repository_url + "tree/" + c.codebase;
     }
+
   }]);
+
+function endsWith(str, suffix) {
+  return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
