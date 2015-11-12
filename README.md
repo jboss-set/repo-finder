@@ -12,6 +12,9 @@ version 0.14.0.
 
 Run `grunt` for building and `grunt serve` for preview.
 
-## Testing
+## Deployment
+Once your changes are complete, execute the following steps:
 
-Running `grunt test` will run the unit tests with karma.
+1. Run `./package.sh` to download the latest json streams file and package the web page + streams into the dist folder.
+2. Commit all of your changes.
+3. Execute `./deploy.sh` to push a subtree (dist folder) of the src branch to the remote gh-pages branch.
