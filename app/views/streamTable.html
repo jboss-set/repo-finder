@@ -21,5 +21,19 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 -->
-<!--TODO-->
-<!--<p>Stream Table!</p>-->
+<div ng-controller="MainCtrl" id="streamTable">
+  <div class="row">
+    <div class="col-md-3" ng-repeat="stream in streams">
+      <h2>{{stream.name}}</h2>
+      <table class="table">
+        <tr ng-repeat="component in stream.codebases">
+          <td>
+            <a href="{{generateCodebaseUrl(component.repository_url, component.codebase)}}" target="_blank">
+              {{component.component_name}}
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

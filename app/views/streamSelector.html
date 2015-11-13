@@ -21,27 +21,45 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 -->
-<div ng-controller="MainCtrl" class="container-fluid">
-  <!--Body content-->
-
+<div ng-controller="MainCtrl" id="componentSelector">
   <form name="myForm">
-    <label for="streamSelect">Stream: </label>
-    <select name="streamSelect" id="streamSelect" ng-model="data.selectedStream" ng-change="streamChange()">
-      <option ng-repeat="stream in streams" value="{{$index}}">{{stream.name}}</option>
-    </select>
+    <div class="streamSelector">
+      <div>
+        <label for="streamSelect">Stream: </label>
+        <select name="streamSelect" id="streamSelect" ng-model="data.selectedStream" ng-change="streamChange()">
+          <option ng-repeat="stream in streams" value="{{$index}}">{{stream.name}}</option>
+        </select>
 
-    <label for="componentSelect">Component: </label>
-    <select name="componentSelect" id="componentSelect" ng-model="data.selectedComponent"
-            ng-change="componentChange()">
-      <option ng-repeat="component in components" value="{{$index}}">{{component.component_name}}</option>
-    </select>
+        <label for="componentSelect">Component: </label>
+        <select name="componentSelect" id="componentSelect" ng-model="data.selectedComponent"
+                ng-change="componentChange()">
+          <option ng-repeat="component in components" value="{{$index}}">{{component.component_name}}</option>
+        </select>
+      </div>
+    </div>
   </form>
-  <hr>
-  <p>
-    Stream = {{selectedStream.name}}<br/>
-    Component = {{component.component_name}}<br/>
-    Repository = <a href="{{component.repository_url}}" target="_blank">{{component.repository_url}}</a><br/>
-    Branch = {{component.codebase}}<br/>
-    URL = <a href="{{component.codebaseUrl}}" target="_blank">{{component.codebaseUrl}}</a>
-  </p>
+  <div>
+    <table class="table-hover selectResults">
+      <tr>
+        <td>Stream:</td>
+        <td>{{selectedStream.name}}</td>
+      </tr>
+      <tr>
+        <td>Component:</td>
+        <td>{{component.component_name}}</td>
+      </tr>
+      <tr>
+        <td>Repository:</td>
+        <td><a href="{{component.repository_url}}" target="_blank">{{component.repository_url}}</a></td>
+      </tr>
+      <tr>
+        <td>Branch:</td>
+        <td>{{component.codebase}}</td>
+      </tr>
+      <tr>
+        <td>URL:</td>
+        <td><a href="{{component.codebaseUrl}}" target="_blank">{{component.codebaseUrl}}</td>
+      </tr>
+    </table>
+  </div>
 </div>

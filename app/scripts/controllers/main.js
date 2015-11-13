@@ -40,25 +40,29 @@ angular.module('jbossSetApp')
       $scope.component = $scope.components[componentIndex];
 
       if ($scope.component != undefined) {
-        $scope.component.codebaseUrl = generateCodebaseUrl($scope);
+        $scope.component.codebaseUrl = getCodebaseUrl($scope);
       }
     }
 
     $scope.componentChange = function () {
       var index = $scope.data.selectedComponent;
       $scope.component = $scope.components[index];
-      $scope.component.codebaseUrl = generateCodebaseUrl($scope);
+      $scope.component.codebaseUrl = getCodebaseUrl($scope);
     }
 
+    $scope.generateCodebaseUrl = generateCodebaseUrl;
   }]);
 
-function generateCodebaseUrl($scope) {
+function getCodebaseUrl($scope) {
   var c = $scope.component;
-  var baseUrl = c.repository_url;
-  if (!endsWith(baseUrl, "/")) {
-    baseUrl += "/";
+  return generateCodebaseUrl(c.repository_url, c.codebase);
+}
+
+function generateCodebaseUrl(baseUrl, codebase) {
+  if (!endsWith(baseUrl, '/')) {
+    baseUrl += '/';
   }
-  return baseUrl + "tree/" + c.codebase;
+  return baseUrl + 'tree/' + codebase;
 }
 
 function endsWith(str, suffix) {
