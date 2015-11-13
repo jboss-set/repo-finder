@@ -54,10 +54,11 @@ angular.module('jbossSetApp')
 
 function generateCodebaseUrl($scope) {
   var c = $scope.component;
-  if (!endsWith(c.repository_url, "/")) {
-    c.repository_url += "/";
+  var baseUrl = c.repository_url;
+  if (!endsWith(baseUrl, "/")) {
+    baseUrl += "/";
   }
-  return c.repository_url + "tree/" + c.codebase;
+  return baseUrl + "tree/" + c.codebase;
 }
 
 function endsWith(str, suffix) {
