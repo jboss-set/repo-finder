@@ -8,9 +8,22 @@ Page can be viewed [here](https://ryanemerson.github.io/jboss-set/).
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.14.0.
 
-## Build & development
+## Build & Development
 
-Run `grunt` for building and `grunt serve` for preview.
+### Prerequistes
+1. Node.js
+2. bower
+
+### Local Installation
+1. git clone <repo_finder_url>
+2. cd repo-finder
+2. npm install
+3. bower install
+
+### Local Development
+Run `grunt` for building and `grunt serve` for local dev server.  
+
+Note, you may need to run the commands with the --force option.  
 
 ## Deployment
 Once your changes are complete, execute the following steps:
