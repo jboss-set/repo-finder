@@ -27,13 +27,13 @@
       <div>
         <label for="streamSelect">Stream: </label>
         <select name="streamSelect" id="streamSelect" ng-model="data.selectedStream" ng-change="streamChange()">
-          <option ng-repeat="stream in streams" value="{{$index}}">{{stream.name}}</option>
+          <option ng-repeat="stream in streams | orderBy:'-name'" value="{{$index}}">{{stream.name}}</option>
         </select>
 
         <label for="componentSelect">Component: </label>
         <select name="componentSelect" id="componentSelect" ng-model="data.selectedComponent"
                 ng-change="componentChange()">
-          <option ng-repeat="component in components" value="{{$index}}">{{component.component_name}}</option>
+          <option ng-repeat="component in components | orderBy:'component_name'" value="{{$index}}">{{component.component_name}}</option>
         </select>
       </div>
     </div>

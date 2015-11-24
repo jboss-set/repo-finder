@@ -26,7 +26,7 @@
     <div class="col-md-3" ng-repeat="stream in streams">
       <h2>{{stream.name}}</h2>
       <table class="table">
-        <tr ng-repeat="component in stream.codebases">
+        <tr ng-repeat="component in stream.codebases | orderBy:'component_name'">
           <td>
             <a href="{{generateCodebaseUrl(component.repository_url, component.codebase)}}" target="_blank">
               {{component.component_name}}
