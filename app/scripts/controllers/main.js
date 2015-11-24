@@ -29,33 +29,30 @@ angular.module('jbossSetApp')
       $scope.streams = data.streams;
     });
 
-    $scope.orderProp = 'name';
-
     $scope.streamChange = function () {
       var index = $scope.data.selectedStream;
       $scope.selectedStream = $scope.streams[index];
       $scope.components = $scope.selectedStream.codebases;
-
-      var componentIndex = $scope.data.selectedComponent;
-      $scope.component = $scope.components[componentIndex];
+      $scope.component = getComponent($scope.components, $scope.data.selectedComponent);
 
       if ($scope.component != undefined) {
-        $scope.component.codebaseUrl = getCodebaseUrl($scope);
+        $scope.component.codebaseUrl = getCodebaseUrl($scope.component);
       }
-    }
+    };
 
     $scope.componentChange = function () {
-      var index = $scope.data.selectedComponent;
-      $scope.component = $scope.components[index];
-      $scope.component.codebaseUrl = getCodebaseUrl($scope);
-    }
+      $scope.component = getComponent($scope.components, $scope.data.selectedComponent);
+      $scope.component.codebaseUrl = getCodebaseUrl($scope.component);
+    };
 
     $scope.generateCodebaseUrl = generateCodebaseUrl;
   }]);
 
-function getCodebaseUrl($scope) {
-  var c = $scope.component;
-  return generateCodebaseUrl(c.repository_url, c.codebase);
+function getCodebaseUrl(component) {
+  if (component == undefined) {
+    return undefined;
+  }
+  return generateCodebaseUrl(component.repository_url, component.codebase);
 }
 
 function generateCodebaseUrl(baseUrl, codebase) {
@@ -67,4 +64,18 @@ function generateCodebaseUrl(baseUrl, codebase) {
 
 function endsWith(str, suffix) {
   return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+// Very inefficient, but does it really matter for such small arrays?
+function getComponent(array, componentName) {
+  if (componentName == undefined) {
+    return undefined;
+  }
+
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].component_name === componentName) {
+      return array[i];
+    }
+  }
+  return undefined;
 }

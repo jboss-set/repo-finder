@@ -33,7 +33,7 @@
         <label for="componentSelect">Component: </label>
         <select name="componentSelect" id="componentSelect" ng-model="data.selectedComponent"
                 ng-change="componentChange()">
-          <option ng-repeat="component in components | orderBy:'component_name'" value="{{$index}}">{{component.component_name}}</option>
+          <option ng-repeat="component in components | orderBy:'component_name'">{{component.component_name}}</option>
         </select>
       </div>
     </div>
@@ -58,7 +58,7 @@
       </tr>
       <tr>
         <td>URL:</td>
-        <td><a href="{{component.codebaseUrl}}" target="_blank">{{component.codebaseUrl}}</td>
+        <td><a href="{{component.codebaseUrl}}" target="_blank">{{component.codebaseUrl}}</a></td>
       </tr>
     </table>
   </div>
