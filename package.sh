@@ -1,3 +1,3 @@
 #!/bin/bash
-grunt build --force
+grunt build
 git add dist/
