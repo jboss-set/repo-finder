@@ -2,8 +2,7 @@
 A basic web page that allows SET members to quickly find the URL to a component
 repository based upon a specified release stream.  
 
-Page can be viewed [here](https://ryanemerson.github.io/repo-finder).
-
+Page can be viewed [here](https://jboss-set.github.io/repo-finder).
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.14.0.
@@ -28,6 +27,6 @@ Run `grunt` for building, `grunt serve` for local dev server and `grunt serve:di
 ## Deployment
 Once your changes are complete, execute the following steps:
 
-1. Run `./package.sh`
-2. Commit all of your changes.
-3. Execute `./deploy.sh` to push a subtree (dist folder) of the src branch to the remote gh-pages branch.  This will also push the src branch to your origin repo.  
+1. Commit all of your changes.
+2. Execute `./deploy.sh`.  
+    - This pushes your commit(s) to the remote repository's src branch, builds the site distribution (dist) and then pushes the new dist to the gh-pages branch. By default the remote repository is the 'origin' remote defined in your local git repository.
