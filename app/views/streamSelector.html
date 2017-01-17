@@ -39,61 +39,27 @@
     </div>
   </form>
   <div>
-		<table>
-			<tr>
-				<td>
-					<table class="table-hover selectResults">
-						<tr>
-							<td>Stream:</td>
-							<td>{{selectedStream.name}}</td>
-						</tr>
-						<tr>
-							<td>Component:</td>
-							<td>{{component.component_name}}</td>
-						</tr>
-						<tr>
-							<td>Repository Type:</td>
-							<td>{{component.repository_type}}</td>
-						</tr>
-						<tr>
-							<td>Repository:</td>
-							<td><a href="{{component.repository_url}}" target="_blank">{{component.repository_url}}</a></td>
-						</tr>
-						<tr>
-							<td>Branch:</td>
-							<td>{{component.codebase}}</td>
-						</tr>
-						<tr>
-							<td>URL:</td>
-							<td><a href="{{component.codebaseUrl}}" target="_blank">{{component.codebaseUrl}}</a></td>
-						</tr>
-					</table>
-				</td>
-				<td>
-					<table class="table-hover selectResults">
-						<tr>
-							<td>Tag</td>
-							<td>{{component.tag}}</td>
-						</tr>
-						<tr>
-							<td>Version</td>
-							<td>{{component.version}}</td>
-						</tr>
-						<tr>
-							<td>GAV</td>
-							<td>{{component.gav}}</td>
-						</tr>
-						<tr>
-							<td>Contacts</td>
-							<td>{{component.contacts}}</td>
-						</tr>
-						<tr>
-							<td>Comment</td>
-							<td>{{component.comment}}</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-	</div>
+    <table class="table-hover selectResults">
+      <tr>
+        <td>Stream:</td>
+        <td>{{selectedStream.name}}</td>
+      </tr>
+      <tr>
+        <td>Component:</td>
+        <td>{{component.component_name}}</td>
+      </tr>
+      <tr>
+        <td>Repository:</td>
+        <td><a href="{{component.repository_url}}" target="_blank">{{component.repository_url}}</a></td>
+      </tr>
+      <tr>
+        <td>Branch:</td>
+        <td>{{component.codebase}}</td>
+      </tr>
+      <tr>
+        <td>URL:</td>
+        <td><a href="{{component.codebaseUrl}}" target="_blank">{{component.codebaseUrl}}</a></td>
+      </tr>
+    </table>
+  </div>
 </div>
