@@ -25,7 +25,7 @@
 angular.module('jbossSetApp')
   .controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 
-    $http.get('https://raw.githubusercontent.com/jboss-set/jboss-streams/master/streams.json').success(function (data) {
+    $http.get('https://raw.githubusercontent.com/baranowb/jboss-streams/ISSUE_15/streams.json').success(function (data) {
       $scope.streams = data.streams;
     });
 
