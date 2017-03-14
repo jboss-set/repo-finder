@@ -56,6 +56,9 @@ function getCodebaseUrl(component) {
 }
 
 function generateCodebaseUrl(baseUrl, codebase) {
+  if (endsWith(baseUrl, '.git') || endsWith(baseUrl, '.git/')) {
+      baseUrl = baseUrl.slice(0,baseUrl.lastIndexOf('.git'));
+  }
   if (!endsWith(baseUrl, '/')) {
     baseUrl += '/';
   }
